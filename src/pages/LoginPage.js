@@ -10,7 +10,7 @@ function LoginPage(){
     const navigate = useNavigate()
 
     const [state, setState] = useState({
-        username: '',
+        email: '',
         password: ''
     });
 
@@ -38,10 +38,10 @@ function LoginPage(){
             <h2>Log In</h2>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Username</label>
+                    <label>Email</label>
                     <input 
-                        name='username'
-                        value={state.username}
+                        name='email'
+                        value={state.email}
                         onChange={updateState}
                     />
                 </div>

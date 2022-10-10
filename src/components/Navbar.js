@@ -4,18 +4,23 @@ import { AuthContext } from '../contexts/auth.context';
 
 function Navbar(){
 
-    const { isLoggedIn, user } = useContext(AuthContext);
+    const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
-
-//fill up isLogged in with relevant Links, and logout button; Homepage is visible to anyone
     return(
         <nav>
         <Link to='/'>Home</Link>
             { isLoggedIn && (
                 <>
-                    
+                    <Link to='product-list'>Products</Link>
+                    <Link>My Cart</Link>
+                    <button onClick={logOutUser}>Log Out</button>
                 </>
             )}
+
+                {/* {user && (
+                    <p>Welcome, { user.username }!</p>
+                )} */}
+
             { !isLoggedIn && (
                 <>
                 <Link to='/signup'>Sign Up</Link>
