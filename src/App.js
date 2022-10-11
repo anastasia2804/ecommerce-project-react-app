@@ -10,6 +10,7 @@ import SingleProductPage from './pages/SingleProductPage';
 
 import IsPrivate from './components/isPrivate';
 import IsAnon from './components/IsAnon';
+import CartPage from './pages/CartPage';
 
 function App() {
   return (
@@ -39,6 +40,12 @@ function App() {
     <Route path="/product-list/:productId" element={
         <IsPrivate>
             <SingleProductPage />
+        </IsPrivate>
+    } />
+
+    <Route path="/my-cart" element={
+        <IsPrivate>
+            <CartPage />
         </IsPrivate>
     } />
 

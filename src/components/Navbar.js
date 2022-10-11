@@ -11,8 +11,8 @@ function Navbar(){
         <Link to='/'>Home</Link>
             { isLoggedIn && (
                 <>
-                    <Link to='product-list'>Products</Link>
-                    <Link>My Cart</Link>
+                    <Link to='/product-list'>Products</Link>
+                    <Link to='/my-cart'>My Cart</Link>
                     <button onClick={logOutUser}>Log Out</button>
                 </>
             )}

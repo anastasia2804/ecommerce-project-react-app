@@ -1,11 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../contexts/cart.context'
 
 
 function ProductListPage(){
 
 const [productsArray, setProductsArray] = useState([])
+const { cartArray, setCartArray } = useContext(CartContext);
 
 useEffect(()=>{
     axios.get('http://localhost:3001/products')
@@ -20,7 +22,7 @@ useEffect(()=>{
             {productsArray.map(singleProduct => {
                 return(
                     <div key={singleProduct._id}>
-                    <Link to={`product-list/${singleProduct._id}`}>
+                    <Link to={`/product-list/${singleProduct._id}`}>
                         <div>
                             <img src={singleProduct.imageUrl} alt={singleProduct.title} height={200}/>
                         </div>
@@ -29,6 +31,14 @@ useEffect(()=>{
                             <p>{singleProduct.price}</p>
                         </div>
                     </Link>
+                    <div>
+                        <p>Quantity</p>
+                        <button onClick={()=> {
+                            setCartArray([...cartArray, singleProduct])
+                        }}>
+                        Add to cart
+                        </button>
+                    </div>
                     </div>
                 )
             })}
