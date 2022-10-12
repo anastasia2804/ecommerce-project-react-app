@@ -3,14 +3,18 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom'
 
 import Navbar from './components/Navbar';
+import Homepage from './pages/Homepage';
 import SignupPage from './pages/SignupPage';
 import LoginPage from './pages/LoginPage';
 import ProductListPage from './pages/ProductListPage';
 import SingleProductPage from './pages/SingleProductPage';
-
+import ShippingInfoPage from './pages/ShippingInfoPage';
+import ProfilePage from './pages/ProfilePage';
+import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import IsPrivate from './components/isPrivate';
 import IsAnon from './components/IsAnon';
 import CartPage from './pages/CartPage';
+
 
 function App() {
   return (
@@ -18,7 +22,7 @@ function App() {
     <Navbar/>
     <Routes>
 
-      <Route path="/" element={<h1>homepage</h1>} />
+      <Route path="/" element={<Homepage/>} />
 
       <Route path="/signup" element={
         <IsAnon>
@@ -49,6 +53,23 @@ function App() {
         </IsPrivate>
     } />
 
+    <Route path="/shipping-info" element={
+        <IsPrivate>
+            <ShippingInfoPage />
+        </IsPrivate>
+    } />
+
+    <Route path="/profile" element={
+        <IsPrivate>
+            <ProfilePage />
+        </IsPrivate>
+    } />
+
+    <Route path="/order/confirm" element={
+        <IsPrivate>
+            <OrderConfirmationPage />
+        </IsPrivate>
+    } />
     </Routes>
       
     </div>

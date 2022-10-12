@@ -24,7 +24,6 @@ function LoginPage(){
 
         axios.post('http://localhost:3001/login', state)
         .then(res => {
-            console.log(res.data);
             storeToken(res.data.authToken);
             authenticateUser();
             navigate('/');
@@ -34,20 +33,22 @@ function LoginPage(){
 
 
     return (
-        <div>
-            <h2>Log In</h2>
+        <div className="container-lg">
+            <h2 className="mb-4 mt-4">Log In</h2>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email</label>
+                <div className="mb-3" >
+                    <label className="form-label">Email</label>
                     <input 
+                        className="form-control"
                         name='email'
                         value={state.email}
                         onChange={updateState}
                     />
                 </div>
-                <div>
-                    <label>Password</label>
+                <div className="mb-3" >
+                    <label className="form-label">Password</label>
                     <input 
+                    className="form-control"
                         name='password'
                         value={state.password}
                         type="password"
@@ -55,7 +56,7 @@ function LoginPage(){
                     />
                 </div>
                 <div>
-                   <button>Log In</button>
+                   <button className='btn btn-secondary bt-lg'>Log In</button>
                 </div>
             </form>
         </div>

@@ -12,14 +12,37 @@ function SingleProductPage(){
 
     const { cartArray, setCartArray } = useContext(CartContext);
 
+    const [quantity, setQuantity] = useState(1)
+
     useEffect(()=> {
-        axios.get(`http://localhost:3001/products/${productId}`)
+
+        const authToken = localStorage.getItem('authToken');
+
+        axios.get(`http://localhost:3001/products/${productId}`, {
+            headers: {
+                authorization: `Bearer ${authToken}`
+            }
+        })
         .then(res => setSingleProduct(res.data.product))
         .catch(err=> console.log(err))
     }, [productId])
 
+    const updateCart = () => {
+        const productIndex = cartArray.findIndex(element=>{
+            return productId === element.product._id
+        })
+
+        if (productIndex === -1) {
+            setCartArray([...cartArray, {product: singleProduct, quantity}])
+        } else {
+            let updatedCartArray = [...cartArray]
+            updatedCartArray[productIndex].quantity += quantity
+            setCartArray(updatedCartArray)
+        }
+    }
+
  return (
-    <div>
+    <div className='container-lg'>
         {singleProduct && (
             <div>
                 <div>
@@ -27,14 +50,20 @@ function SingleProductPage(){
                 </div>
                 <div>
                     <h2>{singleProduct.title}</h2>
-                    <p>{singleProduct.description}</p>
-                    <p>{singleProduct.price}</p>
-                    <p>Quantity</p>
-                    <button onClick={()=> {
-                            setCartArray([...cartArray, singleProduct])
-                        }}>
+                    <p className='lh-lg'>{singleProduct.description}</p>
+                    <p>${singleProduct.price}</p>
+                    <p>Quantity: {quantity}</p>
+                    <button className='btn btn-light'  onClick={()=> {
+                    setQuantity(quantity + 1)}}>+</button>
+                    <button className='btn btn-light' onClick={()=> {
+                        if (quantity <= 1) { return 0 }
+                    setQuantity(quantity - 1)}}>-</button>
+                    <div>
+                    <button className='btn btn-secondary btn-lg' onClick={updateCart}>
                         Add to cart
                         </button>
+                    </div>
+                    
                 </div>
                 
             </div>
