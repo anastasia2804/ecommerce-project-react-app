@@ -45,7 +45,7 @@ function SingleProductPage(){
     <div className='container-lg mt-4'>
         {singleProduct && (
             <div className="row justify-content-center align-items-center">
-                <div className="col-md-5 text-center d-none d-md-block">
+                <div className="col-md-5 text-center">
                     <img  className="img-fluid" src={singleProduct.imageUrl} alt={singleProduct.title} height={400}/>
                 </div>
                 <div className="col-md-5 text-center">

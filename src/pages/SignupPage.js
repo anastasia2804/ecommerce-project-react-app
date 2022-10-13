@@ -30,6 +30,8 @@ function SignupPage(){
 
     return (
         <div className="container-lg">
+        <div className="row justify-content-center align-items-center">
+        <div className="col-md-6 text-center">
             <h2 className="mb-4 mt-4">Sign Up</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
@@ -55,6 +57,8 @@ function SignupPage(){
                    <button className='btn btn-secondary bt-lg'>Sign Up</button>
                 </div>
             </form>
+            </div>
+            </div>
         </div>
     )
 }

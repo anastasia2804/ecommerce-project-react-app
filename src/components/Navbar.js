@@ -9,26 +9,25 @@ function Navbar(){
     return(
         <nav className="navbar navbar-expand-md navbar-light">
         <div className="container-xxl">
-            <div className="navbar-brand">
-            <Link className="text-decoration-none" to='/'><span class="fw-bold text-secondary">
+            <Link className="navbar-brand text-decoration-none" to='/'><span className="fw-bold text-secondary">
                 Pura Vida - Bohemian Decor & Accesories
             </span></Link>
-            </div>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#main-nav" aria-controls="main-nav" aria-expanded="false" 
         aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
         </button>
 
-            <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
-            <ul class="navbar-nav">
-            <Link class="nav-item nav-link" to='/'>Home</Link>
+            <div className="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+            <ul className="navbar-nav">
+            <li ><Link className="nav-link" to='/'>Home</Link></li>
                 { isLoggedIn && (
                     <>
-                        <Link class="nav-item nav-link" to='/product-list'>Products</Link>
-                        <Link class="nav-item nav-link" to='/my-cart'>My Cart</Link>
-                        <Link class="nav-item nav-link" to='/profile'>Orders & Profile</Link>
+                    <li className='nav-item'> <Link className="nav-link" to='/product-list'>Products</Link></li>
+                    <li className='nav-item'> <Link className="nav-link" to='/my-cart'>My Cart</Link></li>
+                    <li className='nav-item'> <Link className="nav-link" to='/profile'>Orders & Profile</Link></li>
+                       
                         <button className="btn btn-light" onClick={logOutUser}>Log Out</button>
                     </>
                 )}
@@ -36,8 +35,8 @@ function Navbar(){
 
                 { !isLoggedIn && (
                     <>
-                    <Link class="nav-item nav-link" to='/signup'>Sign Up</Link>
-                    <Link class="nav-item nav-link" to='/login'>Log In</Link>
+                    <Link className="nav-item nav-link" to='/signup'>Sign Up</Link>
+                    <Link className="nav-item nav-link" to='/login'>Log In</Link>
                     </>
                 )}
                 </ul>

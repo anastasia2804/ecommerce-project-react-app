@@ -50,7 +50,6 @@ const submitForm= e => {
             })
         .catch(err => console.log(err))
 
-    console.log(addressObject)
     setCartArray([])
 
 
@@ -60,6 +59,8 @@ const submitForm= e => {
 return(
     <form onSubmit={submitForm}>
     <div className="container-lg mt-5">
+    <div className="row justify-content-center align-items-center">
+        <div className="col-md-6 text-center">
     <h3 className="mb-5"> Shipping details</h3>
     <div className="row">
         <div className="column">
@@ -94,6 +95,8 @@ return(
         <div>
             <button className='btn btn-secondary bt-lg mt-3' type="submit">Continue to payment info</button>
         </div>
+    </div>
+    </div>
     </div>
     </form>
     )

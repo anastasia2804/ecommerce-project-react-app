@@ -8,8 +8,6 @@ function ProductListPage(){
 
 const [productsArray, setProductsArray] = useState([]);
 
-//console.log(productsArray[0]._id)
-
 const { cartArray, setCartArray } = useContext(CartContext);
 
 useEffect(()=>{
@@ -22,7 +20,6 @@ useEffect(()=>{
         }
     })
     .then(res => {
-        console.log(res.data)
         setProductsArray(res.data.products.map(p => ({ product: p, quantity: 1})))})
     .catch(err => console.log(err))
 }, [])
@@ -57,12 +54,13 @@ const updateCart = index => () => {
 }
 
     return (
-        <div class="row row-cols-1 row-cols-md-5 g-4 mt-3">
+        <div className="container-lg mt-4">
+        <div className="row justify-content-center align-items-center">
             {productsArray.map(({product: singleProduct, quantity}, index) => {
                 return(
                     
                         <div class="col">
-                            <div className="card h-100 m-2" style={{width: "18rem"}} key={singleProduct._id}>
+                            <div className="card h-100 mx-2 my-4" style={{width: "18rem"}} key={singleProduct._id}>
                                 <Link className='text-start text-decoration-none' to={`/product-list/${singleProduct._id}`}>
                                         <img className="card-img-top" style={{height: "18rem"}} src={singleProduct.imageUrl} alt={singleProduct.title} />
                                     <div className="card-body" style={{height: "8rem"}}>
@@ -89,6 +87,7 @@ const updateCart = index => () => {
                   
                 )
             })}
+        </div>
         </div>
     )
 }

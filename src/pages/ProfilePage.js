@@ -19,7 +19,6 @@ function ProfilePage(){
             }
         })
         .then(res=> {
-            console.log(res.data)
             setPastOrdersArr(res.data.orders)
         })
         .catch(err=>console.log)

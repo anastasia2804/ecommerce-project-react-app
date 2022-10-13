@@ -7,8 +7,6 @@ function CartPage(){
     const { cartArray, setCartArray } = useContext(CartContext);
     const navigate = useNavigate()
 
-    console.log(cartArray)
-
     function deleteItem (itemId) {
         const filteredProducts = cartArray.filter(item => {
             return item.product._id !== itemId
@@ -34,9 +32,11 @@ function CartPage(){
 
     return (
         <div className="container-lg mt-5">
+            <h3 className='mb-4'>My Cart</h3>
             {cartArray.map(element => {
                 return (
-                        <div class="card mb-3" style={{maxWidth: "540px"}} key={element.product._id}>
+                    <div className="row justify-content-center align-items-center">
+                        <div class="card mb-3" style={{maxWidth: "700px"}} key={element.product._id}>
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <img src={element.product.imageUrl} alt={element.product.title} height={200}/>
@@ -49,6 +49,7 @@ function CartPage(){
                                 <div>
                                 <button className='btn btn-light mt-4' onClick={()=> deleteItem(element.product._id)}>Delete</button>
                                 </div>
+                            </div>
                             </div>
                             </div>
                         </div>
