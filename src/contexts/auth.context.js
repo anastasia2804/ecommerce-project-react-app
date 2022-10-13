@@ -20,7 +20,7 @@ function AuthProvider(props) {
 
         if(storedToken) {
 
-            axios.get('http://localhost:3001/verify', {
+            axios.get(`${process.env.REACT_APP_BACKEND_URL}/verify`, {
                  headers: {
                     authorization: `Bearer ${storedToken}`
                  }

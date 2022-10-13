@@ -18,7 +18,7 @@ function SingleProductPage(){
 
         const authToken = localStorage.getItem('authToken');
 
-        axios.get(`http://localhost:3001/products/${productId}`, {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/products/${productId}`, {
             headers: {
                 authorization: `Bearer ${authToken}`
             }

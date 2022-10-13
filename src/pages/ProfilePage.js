@@ -13,7 +13,7 @@ function ProfilePage(){
 
         const authToken = localStorage.getItem('authToken');
 
-        axios.get('http://localhost:3001/past-orders', {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}/past-orders`, {
             headers: {
                 authorization: `Bearer ${authToken}`
             }
@@ -28,7 +28,7 @@ function ProfilePage(){
 
         const authToken = localStorage.getItem('authToken')
 
-        axios.delete('http://localhost:3001/delete-user', {
+        axios.delete(`${process.env.REACT_APP_BACKEND_URL}/delete-user`, {
             headers: {
                 authorization: `Bearer ${authToken}`
             }

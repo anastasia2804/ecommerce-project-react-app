@@ -14,7 +14,7 @@ useEffect(()=>{
 
     const authToken = localStorage.getItem('authToken');
 
-    axios.get('http://localhost:3001/products', {
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/products`, {
         headers: {
             authorization: `Bearer ${authToken}`
         }

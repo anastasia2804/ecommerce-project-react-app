@@ -39,7 +39,7 @@ const submitForm= e => {
 
     const authToken = localStorage.getItem('authToken');
 
-    axios.post('http://localhost:3001/new-order', {cartArray, addressObject}, {
+    axios.post(`${process.env.REACT_APP_BACKEND_URL}/new-order`, {cartArray, addressObject}, {
         headers: {
             authorization: `Bearer ${authToken}`
         }
