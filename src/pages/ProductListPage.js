@@ -57,7 +57,7 @@ const updateCart = index => () => {
 }
 
     return (
-        <div class="row row-cols-1 row-cols-md-5 g-4">
+        <div class="row row-cols-1 row-cols-md-5 g-4 mt-3">
             {productsArray.map(({product: singleProduct, quantity}, index) => {
                 return(
                     

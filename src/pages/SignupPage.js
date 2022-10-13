@@ -29,20 +29,22 @@ function SignupPage(){
 
 
     return (
-        <div>
-            <h2>Sign Up</h2>
+        <div className="container-lg">
+            <h2 className="mb-4 mt-4">Sign Up</h2>
             <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Email</label>
+                <div className="mb-3">
+                    <label className="form-label">Email</label>
                     <input 
+                        className="form-control"
                         name='email'
                         value={state.email}
                         onChange={updateState}
                     />
                 </div>
-                <div>
-                    <label>Password</label>
+                <div className="mb-3">
+                    <label className="form-label">Password</label>
                     <input 
+                        className="form-control"
                         name='password'
                         value={state.password}
                         type="password"
@@ -50,7 +52,7 @@ function SignupPage(){
                     />
                 </div>
                 <div>
-                   <button>Sign Up</button>
+                   <button className='btn btn-secondary bt-lg'>Sign Up</button>
                 </div>
             </form>
         </div>

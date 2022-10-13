@@ -10,9 +10,9 @@ function Navbar(){
         <nav className="navbar navbar-expand-md navbar-light">
         <div className="container-xxl">
             <div className="navbar-brand">
-            <span class="fw-bold text-secondary">
-                Bohemian Decor & Accesories
-            </span>
+            <Link className="text-decoration-none" to='/'><span class="fw-bold text-secondary">
+                Pura Vida - Bohemian Decor & Accesories
+            </span></Link>
             </div>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const AuthContext = createContext();
@@ -7,6 +8,8 @@ function AuthProvider(props) {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [user, setUser] = useState(null);
+
+    const navigate = useNavigate()
 
     const storeToken = token => {
         localStorage.setItem('authToken', token)
@@ -35,12 +38,14 @@ function AuthProvider(props) {
                 setIsLoading(false)
                 setIsLoggedIn(false)
                 setUser(null)
+                navigate('/user/not-found')
             })
 
         } else {
             setIsLoading(false)
             setIsLoggedIn(false)
             setUser(null)
+           
         }
     }
    

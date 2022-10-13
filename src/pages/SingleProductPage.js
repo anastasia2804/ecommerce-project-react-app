@@ -42,20 +42,21 @@ function SingleProductPage(){
     }
 
  return (
-    <div className='container-lg'>
+    <div className='container-lg mt-4'>
         {singleProduct && (
-            <div>
-                <div>
-                    <img src={singleProduct.imageUrl} alt={singleProduct.title} height={400}/>
+            <div className="row justify-content-center align-items-center">
+                <div className="col-md-5 text-center d-none d-md-block">
+                    <img  className="img-fluid" src={singleProduct.imageUrl} alt={singleProduct.title} height={400}/>
                 </div>
-                <div>
+                <div className="col-md-5 text-center">
                     <h2>{singleProduct.title}</h2>
-                    <p className='lh-lg'>{singleProduct.description}</p>
-                    <p>${singleProduct.price}</p>
+                    <p className='lh-lg mx-4 mt-5'>{singleProduct.description}</p>
+                    <h3 className='my-4'>${singleProduct.price}</h3>
                     <p>Quantity: {quantity}</p>
-                    <button className='btn btn-light'  onClick={()=> {
+
+                    <button className='btn btn-light mb-4'  onClick={()=> {
                     setQuantity(quantity + 1)}}>+</button>
-                    <button className='btn btn-light' onClick={()=> {
+                    <button className='btn btn-light mb-4' onClick={()=> {
                         if (quantity <= 1) { return 0 }
                     setQuantity(quantity - 1)}}>-</button>
                     <div>

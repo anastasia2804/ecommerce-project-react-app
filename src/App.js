@@ -14,6 +14,7 @@ import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import IsPrivate from './components/isPrivate';
 import IsAnon from './components/IsAnon';
 import CartPage from './pages/CartPage';
+import NoUserFound from './pages/NoUserFound';
 
 
 function App() {
@@ -32,6 +33,12 @@ function App() {
       <Route path="/login" element={
         <IsAnon>
           <LoginPage />
+        </IsAnon>
+      } />
+
+      <Route path="/user/not-found" element={
+        <IsAnon>
+            <NoUserFound />
         </IsAnon>
       } />
 
@@ -70,6 +77,8 @@ function App() {
             <OrderConfirmationPage />
         </IsPrivate>
     } />
+
+
     </Routes>
       
     </div>

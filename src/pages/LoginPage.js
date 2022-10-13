@@ -55,6 +55,7 @@ function LoginPage(){
                         onChange={updateState}
                     />
                 </div>
+                <p>Don't have an account? <Link to='/signup'>Sign up here</Link></p>
                 <div>
                    <button className='btn btn-secondary bt-lg'>Log In</button>
                 </div>

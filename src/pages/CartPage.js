@@ -33,7 +33,7 @@ function CartPage(){
     }
 
     return (
-        <div className="container-lg">
+        <div className="container-lg mt-5">
             {cartArray.map(element => {
                 return (
                         <div class="card mb-3" style={{maxWidth: "540px"}} key={element.product._id}>
@@ -43,10 +43,12 @@ function CartPage(){
                             </div>
                             <div class="col-md-8">
                                 <h5>{element.product.title}</h5>
-                                <p>{element.product.price}</p>
-                                <p>Quantity: {element.quantity} </p>
-                                <p>Subtotal: {element.quantity*element.product.price}</p>
-                                <button className='btn btn-light' onClick={()=> deleteItem(element.product._id)}>Delete</button>
+                                <p>${element.product.price}</p>
+                                <span>Quantity: {element.quantity} | </span>
+                                <span> Subtotal: ${(element.quantity*element.product.price).toFixed(2)}</span>
+                                <div>
+                                <button className='btn btn-light mt-4' onClick={()=> deleteItem(element.product._id)}>Delete</button>
+                                </div>
                             </div>
                             </div>
                         </div>
@@ -54,10 +56,10 @@ function CartPage(){
                 )
             })}
             <div>
-                <h3>Total:  
+                <h3>Total: $
                     {cartArray.reduce((accumulator, currentValue) => {
                         return accumulator+currentValue.quantity*currentValue.product.price
-                    },0)}
+                    },0).toFixed(2)}
                 </h3>
                 <button className='btn btn-secondary bt-lg' onClick={handleSubmit}>Continue to shipping</button>
             </div>

@@ -59,37 +59,42 @@ const submitForm= e => {
 
 return(
     <form onSubmit={submitForm}>
+    <div className="container-lg mt-5">
+    <h3 className="mb-5"> Shipping details</h3>
+    <div className="row">
+        <div className="column">
+        <label className="form-label">First Name</label>
+            <input className="form-control" type="text" value={firstName} onChange={updateFirstName} />
+        </div>
+        <div className="column">
+            <label className="form-label">Last Name</label>
+            <input className="form-control"  type="text" value={lastName} onChange={updateLastName} />
+        </div>
+    </div>
         <div>
-            <label>First Name</label>
-            <input type="text" value={firstName} onChange={updateFirstName} />
+            <label className="form-label">Address Line 1</label>
+            <input className="form-control" type="text" value={address1} onChange={updateAddress1} />
         </div>
         <div>
-            <label>Last Name</label>
-            <input type="text" value={lastName} onChange={updateLastName} />
+            <label className="form-label">Address Line 2</label>
+            <input className="form-control" type="text" value={address2} onChange={updateAddress2} />
         </div>
         <div>
-            <label>Address Line 1</label>
-            <input type="text" value={address1} onChange={updateAddress1} />
+            <label className="form-label">City</label>
+            <input className="form-control" type="text" value={city} onChange={updateCity} />
         </div>
         <div>
-            <label>Address Line 2</label>
-            <input type="text" value={address2} onChange={updateAddress2} />
+            <label className="form-label">State</label>
+            <input className="form-control" type="text" value={state} onChange={updateState} />
         </div>
         <div>
-            <label>City</label>
-            <input type="text" value={city} onChange={updateCity} />
+            <label className="form-label">Zip Code</label>
+            <input className="form-control" type="number" value={zipcode} onChange={updateZipcode} />
         </div>
         <div>
-            <label>State</label>
-            <input type="text" value={state} onChange={updateState} />
+            <button className='btn btn-secondary bt-lg mt-3' type="submit">Continue to payment info</button>
         </div>
-        <div>
-            <label>Zip Code</label>
-            <input type="number" value={zipcode} onChange={updateZipcode} />
-        </div>
-        <div>
-            <button type="submit">Continue to payment info</button>
-        </div>
+    </div>
     </form>
     )
 }
