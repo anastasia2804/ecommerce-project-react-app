@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button'
 
 function NavbarComponent() {
+
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
@@ -21,12 +22,12 @@ function NavbarComponent() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse className="justify-content-end align-center" id="basic-navbar-nav">
           <Nav className="ml-auto">
-          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link as={Link} to="/">Home</Nav.Link>
           {isLoggedIn && (
               <>
-              <Nav.Link href="/product-list">Products</Nav.Link>
-              <Nav.Link href="/my-cart">My cart</Nav.Link>
-              <Nav.Link href="/profile">Orders & Profile</Nav.Link>
+              <Nav.Link as={Link} to="/product-list">Products</Nav.Link>
+              <Nav.Link as={Link} to="/my-cart">My cart</Nav.Link>
+              <Nav.Link as={Link} to="/profile">Orders & Profile</Nav.Link>
               <Button variant="light" onClick={logOutUser}>
                   Log Out
                 </Button>
@@ -35,10 +36,9 @@ function NavbarComponent() {
 
           {!isLoggedIn && ( 
             <>
-            <Nav.Link href="/signup">Sign Up</Nav.Link>
-            <Nav.Link href="/login">Log In</Nav.Link>
+            <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
+            <Nav.Link as={Link} to="/login">Log In</Nav.Link>
             </>
-
           )}
         
         </Nav>
