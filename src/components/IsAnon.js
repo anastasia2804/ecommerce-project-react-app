@@ -1,8 +1,9 @@
 import { AuthContext } from '../contexts/auth.context';
 import { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function IsAnon({ children }){
+    const navigate = useNavigate()
 
     const { isLoggedIn, isLoading } = useContext(AuthContext);
 
@@ -11,7 +12,8 @@ if(isLoading) {
 }
 
 if(isLoggedIn){
-    return <Navigate to='/'/>
+    navigate("/")
+    return 
 } else {
     return children;
 }

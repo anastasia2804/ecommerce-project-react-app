@@ -2,29 +2,35 @@ import { useState } from "react";
 import { Link, useNavigate} from 'react-router-dom';
 import axios from "axios";
 
-function SignupPage(){
+function SignupPage(props){
     
     const navigate = useNavigate()
 
-    const [state, setState] = useState({
+    const [user, setUser] = useState({
         email: '',
         password: ''
     });
+    const [error, setError] = useState("");
 
-    const updateState = event => setState({
-        ...state,
+    const updateuser = event => setUser({
+        ...user,
         [event.target.name] : event.target.value
     })
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post(`${process.env.REACT_APP_BACKEND_URL}/signup`, state)
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/signup`, user)
             .then(res => {
                 console.log(res.data);
-                navigate('/login')
+                //if (res.data === "error")
+                setError(res.data.error)
+                //navigate('/login')
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                setError(err)
+            })
     }
 
 
@@ -33,14 +39,15 @@ function SignupPage(){
         <div className="row justify-content-center align-items-center">
         <div className="col-md-6 text-center">
             <h2 className="mb-4 mt-4">Sign Up</h2>
+            <h5 style={{color: "red"}}>{error}</h5>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label className="form-label">Email</label>
                     <input 
                         className="form-control"
                         name='email'
-                        value={state.email}
-                        onChange={updateState}
+                        value={user.email}
+                        onChange={e => setUser({...user, email: e.target.value})}
                     />
                 </div>
                 <div className="mb-3">
@@ -48,9 +55,9 @@ function SignupPage(){
                     <input 
                         className="form-control"
                         name='password'
-                        value={state.password}
+                        value={user.password}
                         type="password"
-                        onChange={updateState}
+                        onChange={updateuser}
                     />
                 </div>
                 <div>
@@ -62,5 +69,6 @@ function SignupPage(){
         </div>
     )
 }
+
 
 export default SignupPage;
