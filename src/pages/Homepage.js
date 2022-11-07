@@ -8,13 +8,13 @@ function Homepage() {
                 <div className="col-md-5 text-center text-md-start">
                     <h1>
                         <div className="display-2">Pura Vida</div>
-                        <div className="display-5 text-muted">Boho Design & Accesories</div>
+                        <div className="display-5 text-muted">Bohemian Decor & Accessories</div>
                     </h1>
-                    <p className="lead my-4 text-muted">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam omnis sequi ipsam itaque magni, mollitia animi ducimus dolore officia quis laboriosam eius rem exercitationem distinctio ad voluptate corporis temporibus maiores.</p>
+                    <p className="lead my-4 text-muted">Shop unique pieces to bring warm and eclectic style to your home. Create your dream setting for an event or family gathering. Add a personal touch with boho-inspired handmade accessories.</p>
                     <Link to="/product-list" className="btn btn-secondary bt-lg"> See All Products</Link>
                 </div>
-            <div className="col-md-5 text-center d-none d-md-block">
-                <img className="img-fluid" src="https://res.cloudinary.com/dfyitssyo/image/upload/v1665584229/Project3/boho-home_kxogoe.jpg" alt="cover" />
+            <div className="col-md-5 text-center">
+                <img className="img-fluid mt-5" src="https://res.cloudinary.com/dfyitssyo/image/upload/v1665584229/Project3/boho-home_kxogoe.jpg" alt="cover" />
             </div>
             </div>
         </div>

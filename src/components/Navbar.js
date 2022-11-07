@@ -10,7 +10,7 @@ function Navbar() {
       <div className="container-xxl">
         <Link className="navbar-brand text-decoration-none" to="/">
           <span className="fw-bold text-secondary">
-            Pura Vida - Bohemian Decor & Accesories
+            Pura Vida - Boho Decor & Accessories
           </span>
         </Link>
 
