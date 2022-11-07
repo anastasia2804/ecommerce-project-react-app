@@ -2,7 +2,7 @@ import "./App.css";
 
 import { Route, Routes } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
+import NavbarComponent from "./components/NavbarComponent";
 import Homepage from "./pages/Homepage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
@@ -19,7 +19,7 @@ import NoUserFound from "./pages/NoUserFound";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <NavbarComponent />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route

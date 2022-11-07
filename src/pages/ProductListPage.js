@@ -59,7 +59,7 @@ const updateCart = index => () => {
             {productsArray.map(({product: singleProduct, quantity}, index) => {
                 return(
                     
-                        <div class="col">
+                        <div class="col-11 col-md-5 col-lg">
                             <div className="card h-100 mx-2 my-4" style={{width: "18rem"}} key={singleProduct._id}>
                                 <Link className='text-start text-decoration-none' to={`/product-list/${singleProduct._id}`}>
                                         <img className="card-img-top" style={{height: "18rem"}} src={singleProduct.imageUrl} alt={singleProduct.title} />
