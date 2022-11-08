@@ -14,6 +14,8 @@ function LoginPage(){
         password: ''
     });
 
+    const [error, setError] = useState("");
+
     const updateState = event => setState({
         ...state,
         [event.target.name] : event.target.value
@@ -26,9 +28,12 @@ function LoginPage(){
         .then(res => {
             storeToken(res.data.authToken);
             authenticateUser();
-            navigate('/');
+            navigate("/product-list");
             })
-        .catch(err => console.log(err))
+        .catch(err => {
+            console.log(err)
+            setError(err?.response)
+        })
     }
 
 
@@ -37,6 +42,7 @@ function LoginPage(){
         <div className="row justify-content-center align-items-center">
         <div className="col-md-6 text-center">
             <h2 className="mb-4 mt-4">Log In</h2>
+            <h5 style={{color: "red"}}>{error.data?.message}</h5>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3" >
                     <label className="form-label">Email</label>

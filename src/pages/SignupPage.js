@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate} from 'react-router-dom';
+import { useNavigate, Link} from 'react-router-dom';
 import axios from "axios";
 
 function SignupPage(props){
@@ -10,9 +10,10 @@ function SignupPage(props){
         email: '',
         password: ''
     });
+
     const [error, setError] = useState("");
 
-    const updateuser = event => setUser({
+    const updateUser = event => setUser({
         ...user,
         [event.target.name] : event.target.value
     })
@@ -23,13 +24,11 @@ function SignupPage(props){
         axios.post(`${process.env.REACT_APP_BACKEND_URL}/signup`, user)
             .then(res => {
                 console.log(res.data);
-                //if (res.data === "error")
-                setError(res.data.error)
-                //navigate('/login')
+                navigate('/login')
             })
             .catch(err => {
-                console.log(err)
-                setError(err)
+                console.log(err.response)
+                setError(err?.response)
             })
     }
 
@@ -39,7 +38,7 @@ function SignupPage(props){
         <div className="row justify-content-center align-items-center">
         <div className="col-md-6 text-center">
             <h2 className="mb-4 mt-4">Sign Up</h2>
-            <h5 style={{color: "red"}}>{error}</h5>
+            <h5 style={{color: "red"}}>{error.data?.message}</h5>
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label className="form-label">Email</label>
@@ -57,9 +56,10 @@ function SignupPage(props){
                         name='password'
                         value={user.password}
                         type="password"
-                        onChange={updateuser}
+                        onChange={updateUser}
                     />
                 </div>
+                <p>Already have an account? <Link to='/login'>Log In here</Link></p>
                 <div>
                    <button className='btn btn-secondary bt-lg'>Sign Up</button>
                 </div>

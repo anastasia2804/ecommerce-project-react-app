@@ -12,7 +12,7 @@ if(isLoading) {
 }
 
 if(isLoggedIn){
-    navigate("/")
+    navigate("/product-list")
     return 
 } else {
     return children;
