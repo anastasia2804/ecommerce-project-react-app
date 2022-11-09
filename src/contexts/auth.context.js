@@ -12,7 +12,9 @@ function AuthProvider(props) {
     const navigate = useNavigate()
 
     const storeToken = token => {
-        localStorage.setItem('authToken', token)
+        if(token) {
+            localStorage.setItem('authToken', token)
+        }
     }
 
     const authenticateUser = () => {
@@ -38,7 +40,6 @@ function AuthProvider(props) {
                 setIsLoading(false)
                 setIsLoggedIn(false)
                 setUser(null)
-                navigate('/user/not-found')
             })
 
         } else {

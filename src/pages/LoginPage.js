@@ -26,6 +26,7 @@ function LoginPage(){
 
         axios.post(`${process.env.REACT_APP_BACKEND_URL}/login`, state)
         .then(res => {
+            console.log(res)
             storeToken(res.data.authToken);
             authenticateUser();
             navigate("/product-list");
