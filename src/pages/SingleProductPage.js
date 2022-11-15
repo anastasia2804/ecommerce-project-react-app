@@ -2,6 +2,8 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { CartContext } from '../contexts/cart.context';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function SingleProductPage(){
@@ -41,6 +43,13 @@ function SingleProductPage(){
         }
     }
 
+    const notify = () => toast.success("Added to Cart!");
+
+    const addToCart = () => {
+        updateCart()
+        notify()
+    }
+
  return (
     <div className='container-lg mt-4'>
         {singleProduct && (
@@ -60,9 +69,21 @@ function SingleProductPage(){
                         if (quantity <= 1) { return 0 }
                     setQuantity(quantity - 1)}}>-</button>
                     <div>
-                    <button className='btn btn-secondary btn-lg' onClick={updateCart}>
+                    <button className='btn btn-secondary btn-lg' onClick={addToCart}>
                         Add to cart
                         </button>
+                        <ToastContainer 
+                            position="top-center"
+                            autoClose={5}
+                            hideProgressBar
+                            newestOnTop={false}
+                            closeOnClick
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+                        />
                     </div>
                     
                 </div>
