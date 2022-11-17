@@ -15,6 +15,8 @@ import IsPrivate from "./components/isPrivate";
 import IsAnon from "./components/IsAnon";
 import CartPage from "./pages/CartPage";
 import NoUserFound from "./pages/NoUserFound";
+import { ToastContainer, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -102,6 +104,12 @@ function App() {
           }
         />
       </Routes>
+      <ToastContainer 
+          limit={3}
+          newestOnTop={false}
+          transition={Slide}
+          rtl={false}
+      />
     </div>
   );
 }

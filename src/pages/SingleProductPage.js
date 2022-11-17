@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { CartContext } from '../contexts/cart.context';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -43,7 +43,16 @@ function SingleProductPage(){
         }
     }
 
-    const notify = () => toast.success("Added to Cart!");
+    const notify = () => toast.success("Added to Cart!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+    });
 
     const addToCart = () => {
         updateCart()
@@ -72,18 +81,6 @@ function SingleProductPage(){
                     <button className='btn btn-secondary btn-lg' onClick={addToCart}>
                         Add to cart
                         </button>
-                        <ToastContainer 
-                            position="top-center"
-                            autoClose={5}
-                            hideProgressBar
-                            newestOnTop={false}
-                            closeOnClick
-                            rtl={false}
-                            pauseOnFocusLoss
-                            draggable
-                            pauseOnHover
-                            theme="light"
-                        />
                     </div>
                     
                 </div>

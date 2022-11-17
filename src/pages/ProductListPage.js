@@ -1,7 +1,9 @@
 import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../contexts/cart.context'
+import { CartContext } from '../contexts/cart.context';
+import { ToastContainer, toast, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function ProductListPage(){
@@ -38,7 +40,7 @@ const decreaseQuantity = index => () => {
     setProductsArray(copyProductsArray);
 }
 
-const updateCart = index => () => {
+function updateCart(index) {
 
     const productIndex = cartArray.findIndex(element=>{
         return productsArray[index].product._id === element.product._id
@@ -52,6 +54,20 @@ const updateCart = index => () => {
         setCartArray(updatedCartArray)
     }
 }
+
+const notify = () => toast.success("Added to Cart!", {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+});
+
+
+
 
     return (
         <div className="container-lg mt-4">
@@ -77,7 +93,7 @@ const updateCart = index => () => {
 
                                     <button className='btn btn-outline-secondary m-1' onClick={decreaseQuantity(index)}>-</button>
                                     <div>
-                                    <button className="btn btn-secondary bt-lg mt-2" onClick={updateCart(index)}>
+                                    <button className="btn btn-secondary bt-lg mt-2" onClick={()=>{updateCart(index); notify()}}>
                                     Add to cart
                                     </button></div>
                                     
