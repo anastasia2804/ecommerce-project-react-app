@@ -75,7 +75,7 @@ const notify = () => toast.success("Added to Cart!", {
             {productsArray.map(({product: singleProduct, quantity}, index) => {
                 return(
                     
-                        <div class="col-11 col-md-5 col-lg">
+                        <div className="col-11 col-md-5 col-lg">
                             <div className="card h-100 mx-2 my-4" style={{width: "18rem"}} key={singleProduct._id}>
                                 <Link className='text-start text-decoration-none' to={`/product-list/${singleProduct._id}`}>
                                         <img className="card-img-top" style={{height: "18rem"}} src={singleProduct.imageUrl} alt={singleProduct.title} />
@@ -86,7 +86,7 @@ const notify = () => toast.success("Added to Cart!", {
                                         </div>
                                     </div>
                                 </Link>
-                                <div class="card-footer">
+                                <div className="card-footer">
                                     <p>Quantity: {quantity}</p>
 
                                     <button className='btn btn-outline-secondary m-1' onClick={increaseQuantity(index)}>+</button>

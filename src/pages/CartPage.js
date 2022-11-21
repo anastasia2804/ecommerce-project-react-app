@@ -36,12 +36,12 @@ function CartPage(){
             {cartArray.map(element => {
                 return (
                     <div className="row justify-content-center align-items-center">
-                        <div class="card mb-3" style={{maxWidth: "700px"}} key={element.product._id}>
-                        <div class="row g-0">
-                            <div class="col-md-4">
+                        <div className="card mb-3" style={{maxWidth: "700px"}} key={element.product._id}>
+                        <div className="row g-0">
+                            <div className="col-md-4">
                                 <img src={element.product.imageUrl} alt={element.product.title} height={200}/>
                             </div>
-                            <div class="col-md-8">
+                            <div className="col-md-8">
                                 <h5>{element.product.title}</h5>
                                 <p>${element.product.price}</p>
                                 <span>Quantity: {element.quantity} | </span>
