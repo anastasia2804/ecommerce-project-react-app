@@ -1,0 +1,2 @@
+/* 
+  Content-Security-Policy: default-src 'none'; font-src 'self' https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; img-src 'self' data:; connect-src 'self';
