@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../contexts/cart.context';
+import { AuthContext } from '../contexts/auth.context';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -11,16 +12,19 @@ function ProductListPage(){
 const [productsArray, setProductsArray] = useState([]);
 
 const { cartArray, setCartArray } = useContext(CartContext);
+const { user } = useContext(AuthContext)
 
 useEffect(()=>{
 
     const authToken = localStorage.getItem('authToken');
 
-    axios.get(`${process.env.REACT_APP_BACKEND_URL}/products`, {
-        headers: {
-            authorization: `Bearer ${authToken}`
-        }
-    })
+    // axios.get(`${process.env.REACT_APP_BACKEND_URL}/products`, {
+    //     headers: {
+    //         authorization: `Bearer ${authToken}`
+    //     }
+    // })
+
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}/products`)
     .then(res => {
         setProductsArray(res.data.products.map(p => ({ product: p, quantity: 1})))})
     .catch(err => console.log(err))
@@ -57,7 +61,7 @@ function updateCart(index) {
 
 const notify = () => toast.success("Added to Cart!", {
     position: "top-center",
-    autoClose: 3000,
+    autoClose: 2000,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
@@ -86,6 +90,9 @@ const notify = () => toast.success("Added to Cart!", {
                                         </div>
                                     </div>
                                 </Link>
+
+                                {user && 
+                                
                                 <div className="card-footer">
                                     <p>Quantity: {quantity}</p>
 
@@ -98,6 +105,7 @@ const notify = () => toast.success("Added to Cart!", {
                                     </button></div>
                                     
                                 </div>
+                                }
                             </div>
                         </div>
                   

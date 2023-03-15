@@ -23,9 +23,10 @@ function NavbarComponent() {
           <Navbar.Collapse className="justify-content-end align-center" id="basic-navbar-nav">
           <Nav className="ml-auto">
           <Nav.Link as={Link} to="/">Home</Nav.Link>
+          <Nav.Link as={Link} to="/product-list">Products</Nav.Link>
           {isLoggedIn && (
               <>
-              <Nav.Link as={Link} to="/product-list">Products</Nav.Link>
+              
               <Nav.Link as={Link} to="/my-cart">My cart</Nav.Link>
               <Nav.Link as={Link} to="/profile">Orders & Profile</Nav.Link>
               <Button variant="light" onClick={logOutUser}>

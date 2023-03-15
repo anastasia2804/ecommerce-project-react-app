@@ -53,18 +53,18 @@ function App() {
         <Route
           path="/product-list"
           element={
-            <IsPrivate>
+            // <IsPrivate>
               <ProductListPage />
-            </IsPrivate>
+            // </IsPrivate>
           }
         />
 
         <Route
           path="/product-list/:productId"
           element={
-            <IsPrivate>
+            // <IsPrivate>
               <SingleProductPage />
-            </IsPrivate>
+            // </IsPrivate>
           }
         />
 
